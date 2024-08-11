@@ -29,9 +29,9 @@ VM 2: Lubuntu
    * Escolhida por ser uma distribuição Linux leve, representando máquinas de usuários com baixo consumo de recursos.
    * Configuração de rede e preparação para participação em testes de segurança.
 
-VM 3: Ubuntu Server
+VM 3: Servidor Web
 
-   * Configurado como um servidor web utilizando o Apache2.
+   * Configurado como um servidor web utilizando o Apache2 no Ubuntu Server.
    * Servidor sem interface gráfica para otimizar o desempenho.
    * Configuração de diretórios e permissões para garantir a segurança e o funcionamento adequado do serviço web.
 
