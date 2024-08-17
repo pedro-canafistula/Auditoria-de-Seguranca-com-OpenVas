@@ -14,7 +14,7 @@ Este projeto tem como objetivo realizar uma auditoria de segurança em uma rede 
 ## Descrição do Projeto
 Este projeto tem consiste em configurar e testar um ambiente de rede para auditoria de segurança utilizando a ferramenta OpenVAS. O ambiente foi criado com múltiplas máquinas virtuais para simular uma rede corporativa realista, onde foram implementados diversos serviços, como servidor web, banco de dados e sistemas operacionais diversos.
 
-## Etapas do Projeto
+# Etapas do Projeto
 
 ## 1. **Configuração do Ambiente**
 A primeira etapa do projeto foi dedicada à configuração do ambiente de rede virtual, que serve como base para a auditoria de segurança. Foram criadas e configuradas diversas máquinas virtuais (VMs) com diferentes sistemas operacionais e serviços, simulando um ambiente corporativo realista.
@@ -45,6 +45,33 @@ Após a configuração das máquinas, foram realizados testes para garantir que 
 
 ![image](https://github.com/user-attachments/assets/ca2776d1-00d3-4c24-88ec-a81d9d3302c6)
 
+## Configuração da Rede NAT
+Após configurar as VMs, foi criada uma rede NAT dedicada para isolar o ambiente de testes. Essa configuração permite que as VMs se comuniquem entre si e, ao mesmo tempo, mantém o ambiente de testes separado da rede doméstica, garantindo maior segurança e controle.
+
+### Criação da Rede NAT:
+
+No VirtualBox, foi configurado o adaptador de rede de cada VM para utilizar o modo NAT.<br>
+Isso permite que as VMs tenham acesso à internet, se necessário, mas mantém as operações de rede isoladas da rede doméstica.
+
+![image](https://github.com/user-attachments/assets/3004457c-863b-4ced-8139-f6c24d7d8ac4)
+
+
+### Configuração dos Adaptadores de Rede:
+
+Para cada VM, foi adicionado um adaptador de rede NAT através das configurações de rede da VM no VirtualBox.<br>
+A configuração foi replicada em todas as VMs envolvidas no projeto para garantir que todas compartilhem a mesma rede e possam se comunicar entre si.
+
+![image](https://github.com/user-attachments/assets/1e031b3a-1805-42c1-b766-de296e541b1c)
+
+
+### Teste de Comunicação:
+
+Após a configuração, foi realizada uma verificação para garantir que todas as VMs na rede NAT pudessem se comunicar adequadamente.<br>
+
+![image](https://github.com/user-attachments/assets/710385b9-7205-4b6f-be0b-318d276f1e2e)
+
+
+Essa configuração proporciona um ambiente controlado e seguro, essencial para a realização de testes de vulnerabilidades sem comprometer a segurança da rede doméstica.
 
 
 ## 2. **Instalação do OpenVAS no Kali Linux**
