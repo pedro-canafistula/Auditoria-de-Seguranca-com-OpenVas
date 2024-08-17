@@ -19,6 +19,8 @@ Este projeto tem consiste em configurar e testar um ambiente de rede para audito
 ## 1. **Configuração do Ambiente**
 A primeira etapa do projeto foi dedicada à configuração do ambiente de rede virtual, que serve como base para a auditoria de segurança. Foram criadas e configuradas diversas máquinas virtuais (VMs) com diferentes sistemas operacionais e serviços, simulando um ambiente corporativo realista.
 
+### 1.1- Configuração das VMs
+
 VM 1: Windows 7
    
    * Utilizada para simular um ambiente de trabalho comum em empresas.
@@ -45,10 +47,10 @@ Após a configuração das máquinas, foram realizados testes para garantir que 
 
 ![image](https://github.com/user-attachments/assets/ca2776d1-00d3-4c24-88ec-a81d9d3302c6)
 
-## Configuração da Rede NAT
+### 1.2- Configuração da Rede NAT
 Após configurar as VMs, foi criada uma rede NAT dedicada para isolar o ambiente de testes. Essa configuração permite que as VMs se comuniquem entre si e, ao mesmo tempo, mantém o ambiente de testes separado da rede doméstica, garantindo maior segurança e controle.
 
-### Criação da Rede NAT:
+#### 1.2.1- Criação da Rede NAT:
 
 No VirtualBox, foi configurado o adaptador de rede de cada VM para utilizar o modo NAT.<br>
 Isso permite que as VMs tenham acesso à internet, se necessário, mas mantém as operações de rede isoladas da rede doméstica.
@@ -56,7 +58,7 @@ Isso permite que as VMs tenham acesso à internet, se necessário, mas mantém a
 ![image](https://github.com/user-attachments/assets/c8501fcf-5280-4832-8a4c-7d5a4e926224)
 
 
-### Configuração dos Adaptadores de Rede:
+#### 1.2.2- Configuração dos Adaptadores de Rede:
 
 Para cada VM, foi adicionado um adaptador de rede NAT através das configurações de rede da VM no VirtualBox.<br>
 A configuração foi replicada em todas as VMs envolvidas no projeto para garantir que todas compartilhem a mesma rede e possam se comunicar entre si.
@@ -64,7 +66,7 @@ A configuração foi replicada em todas as VMs envolvidas no projeto para garant
 ![image](https://github.com/user-attachments/assets/1e031b3a-1805-42c1-b766-de296e541b1c)
 
 
-### Teste de Comunicação:
+#### 1.2.3-Teste de Comunicação:
 
 Após a configuração, foi realizada uma verificação para garantir que todas as VMs na rede NAT pudessem se comunicar adequadamente.<br>
 
@@ -77,21 +79,21 @@ Essa configuração proporciona um ambiente controlado e seguro, essencial para 
 ## 2. **Instalação do OpenVAS no Kali Linux**
 Nesta etapa, foi realizada a instalação e configuração do OpenVAS em uma máquina virtual rodando Kali Linux. A seguir, detalhamos cada passo do processo.
 
-### Passo 1: Atualização do Sistema
+### 2.1- Atualização do Sistema
 Primeiro, atualizamos o sistema para garantir que o Kali Linux está com todos os pacotes atualizados.<br>
 Para fazer isso rodamos o comando: <code>sudo apt update && sudo apt upgrade -y</code>
 
 ![img1](https://github.com/user-attachments/assets/66349858-c81c-4d82-bbd7-36e7c7ed5c3d)
 
 
-### Passo 2: Instalação do OpenVAS <br>
+### 2.2- Instalação do OpenVAS <br>
 Instalamos o OpenVAS diretamente dos repositórios do Kali Linux.<br>
 Para fazer rodamos o comando: <code>sudo apt install openvas -y</code> <br>
 
 ![img2](https://github.com/user-attachments/assets/e1d48ea6-8fe9-4b4e-8c1a-b64829107f4a)
 
 
-### Passo 3: Configuração Inicial do OpenVAS
+### 2.3- Configuração Inicial do OpenVAS
 Em seguida, configuramos o OpenVAS com o comando:<code>sudo gvm-setup</code> <br>
 
 Este comando configura o ambiente e baixa os feeds de vulnerabilidades necessários.<br>
@@ -99,14 +101,14 @@ Este comando configura o ambiente e baixa os feeds de vulnerabilidades necessár
 ![img3](https://github.com/user-attachments/assets/62c2d53e-449a-4d5e-957b-34e05c13b977)
 
 
-### Passo 4: Verificação do Status do OpenVAS
-Após a configuração, verificamos se todos os serviços do OpenVAS estão funcionando corretamente:
+### 2.4- Verificação do Status do OpenVAS
+Após a configuração, verificamos se todos os serviços do OpenVAS estão funcionando corretamente:<br>
 <code>sudo gvm-check-setup</code> <br>
 
 ![img4](https://github.com/user-attachments/assets/91c58b25-855f-4cee-83c6-8854bdbe1618)
 
 
-### Passo 5: Iniciar o OpenVAS
+### 2.5- Iniciar o OpenVAS
 Iniciamos o OpenVAS com o comando: <code>sudo gvm-start</code>
 O OpenVAS estará acessível via interface web no navegador, em https://localhost:9392.<br>
 
@@ -114,7 +116,7 @@ O OpenVAS estará acessível via interface web no navegador, em https://localhos
 
 
 
-### Passo 6: Acessar o OpenVAS via Navegador 
+### 2.6- Acessar o OpenVAS via Navegador 
 Acessando o OpenVAS através do navegador em https://localhost:9392 e fazendo login com as credenciais geradas (admin e a senha gerada durante a configuração) veremos a seguinte tela:<br>
 
 ![img6](https://github.com/user-attachments/assets/94e87bc4-9c45-4b7c-9328-a3161b15b23e)
@@ -122,11 +124,43 @@ Acessando o OpenVAS através do navegador em https://localhost:9392 e fazendo lo
 Com a instalação e configuração do OpenVAS concluídas, o ambiente está preparado para realizar testes de vulnerabilidades. A partir daqui, o foco será a execução de scans nas máquinas virtuais configuradas, avançando para a próxima fase do projeto.
 
 
-<!--
-3. **Análise dos Resultados:**
-   - Interpretação dos resultados obtidos pelo OpenVAS.
-   - Identificação das vulnerabilidades críticas e propostas de mitigação.
 
+## 3- *Execução da Varredura de Vulnerabilidades:**
+
+Nesta etapa, foi realizada a varredura de vulnerabilidades nas VMs configuradas no ambiente de teste utilizando o OpenVAS.
+
+### 3.1- Identificação dos IPs Ativos
+Antes de configurar o scan no OpenVAS, foi necessário identificar os IPs ativos na rede interna. Para isso, utilizamos o Nmap com o seguinte comando:<br>
+
+<code>nmap -sn 10.0.2.0/24 | grep "Nmap scan report for" | awk '{print $5}' > ./Desktop/ips_ativos.txt</code><br>
+Esse comando realiza uma varredura na rede 10.0.2.0/24, filtra os resultados para mostrar apenas os IPs ativos e os salva em um arquivo chamado ips_ativos.txt na área de trabalho.
+
+![imgx](https://github.com/user-attachments/assets/75b6fd39-579a-42db-a24e-d3274e4bdee2)
+
+
+### 3.2- Configuração do Scan
+Com os IPs ativos identificados, foi criado um novo scan no OpenVAS para analisar as VMs presentes na rede interna. Abaixo estão os detalhes da configuração:
+
+Nome do Scan: [SCAN-01] [LAB ENVIRONMENT] [FULL AND FAST]<br>
+Alvos: IPs listados no arquivo ips_ativos.txt<br>
+Configuração de Scan: Full and fast<br>
+Lista de Portas: All IANA assigned TCP<br>
+Teste de Conectividade: Consider Alive<br>
+
+![Captura de tela 2024-08-17 165002](https://github.com/user-attachments/assets/cb36a044-31e1-4432-a4c9-65cf9254ce41)
+
+
+### 3.3- Execução e Resultados do Scan
+Após a configuração, o scan foi iniciado. O OpenVAS começou a análise das VMs na rede, procurando por possíveis vulnerabilidades em todos os serviços e portas configurados.<br>
+
+Ao término do scan, o OpenVAS gerou um relatório detalhado listando todas as vulnerabilidades encontradas, classificadas por nível de severidade (alta, média, baixa). Esses resultados serão usados na próxima etapa para analisar e mitigar as vulnerabilidades identificadas.
+
+![image](https://github.com/user-attachments/assets/bec49d83-7f04-4c8d-a640-1ae963de3f24)
+
+
+
+
+<!--
 4. **Relatório Final:**
    - Geração de um relatório detalhado com as vulnerabilidades encontradas.
    - Recomendações para correções e boas práticas de segurança.
