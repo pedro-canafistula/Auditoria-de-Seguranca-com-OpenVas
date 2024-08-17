@@ -53,7 +53,7 @@ Após configurar as VMs, foi criada uma rede NAT dedicada para isolar o ambiente
 No VirtualBox, foi configurado o adaptador de rede de cada VM para utilizar o modo NAT.<br>
 Isso permite que as VMs tenham acesso à internet, se necessário, mas mantém as operações de rede isoladas da rede doméstica.
 
-![image](https://github.com/user-attachments/assets/3004457c-863b-4ced-8139-f6c24d7d8ac4)
+![image](https://github.com/user-attachments/assets/c8501fcf-5280-4832-8a4c-7d5a4e926224)
 
 
 ### Configuração dos Adaptadores de Rede:
