@@ -191,10 +191,19 @@ A vulnerabilidade pode ser explorada remotamente, sem a necessidade de autentica
 ### 4.4- Mitigação
 Para corrigr essa vulnerabilidade é necessário aplicar o patch de segurança fornecido pela Microsoft identificado como MS17-010.
 
+Caso possível, desative o SMBv1 no servidor, pois essa versão é a mais vulnerável e não deve ser mais utilizada em sistemas modernos.
+
 Também é importante implementar regras de firewalll para restringir o acesso ao SMB, para evitar que máquinas não autorizadas tenham acesso a essa porta.
 
 ![image](https://github.com/user-attachments/assets/3c33e45f-ef2b-44fd-b8a9-0ad8584bd840)
 
+<!--
+## 5- **Correção da Vulnerabilidade**
+Ness etapa, iremos descrever o processo de correção da vulnerabilidade "Microsoft Windows SMB Server Multiple Vulnerabilities-Remote (4013389)" e realizar uma nova varredura para confirmar que a vulnerabilidade foi corrigida.
+
+### 5.1- Desativação do SMBv1
+Desativei a versão SMBv1 no Windows para mitigar a vulnerabilidade. Executei o seguinte comando no PowerShell como administrador:
+-->
 
 ## Habilidades Desenvolvidas
 <!--
