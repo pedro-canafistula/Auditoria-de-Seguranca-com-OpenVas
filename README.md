@@ -125,7 +125,7 @@ Com a instalação e configuração do OpenVAS concluídas, o ambiente está pre
 
 
 
-## 3- *Execução da Varredura de Vulnerabilidades:**
+## 3- **Execução da Varredura de Vulnerabilidades:**
 
 Nesta etapa, foi realizada a varredura de vulnerabilidades nas VMs configuradas no ambiente de teste utilizando o OpenVAS.
 
@@ -160,11 +160,42 @@ Ao término do scan, o OpenVAS gerou um relatório detalhado listando todas as v
 
 
 
-<!--
-4. **Relatório Final:**
-   - Geração de um relatório detalhado com as vulnerabilidades encontradas.
-   - Recomendações para correções e boas práticas de segurança.
--->
+## 4- **Anásile dos Resultados**
+Nessa etapa, nós iremos analisar os resultados obtidos durante a varredura, além de corrigir as principais vulnerabilidades encontradas.
+
+### 4.1- Análise Detalhada de uma Vulnerabilidade Crítica
+Nós escolhemos a seguinte vulnerabilidade crítica para analisar mais detalhadamente
+
+Título: Microsoft Windows SMB Server Multiple Vulnerabilities - Remote (4013389)
+
+ID: 8e56e7df-da92-4807-bb6c-b5c58e01d335
+
+Descrição: Essa vulnerabilidade afeta o servidor SMB do Windows e pode permitir a execução remota de código ou negação de serviço. Um atacante remoto não autenticado pode explorar isso enviando pacotes SMB maliciosos ao sistema vulnerável.
+
+CVE: CVE-2017-0143 ao 2017-0148
+
+![image](https://github.com/user-attachments/assets/28bf636b-b97b-4b67-8b72-554285ab94d4)
+
+### 4.2-  Impacto Potencial no Sistema
+- Impacto: Caso explorada, essa vulnerabilidade permite que um atacante execute código arbitrário remotamente no sistema Windows, comprometendo sua integridade e segurança. Pode levar à execução de malware, ransomware, ou até mesmo controle completo do sistema alvo.
+- Sistemas Afetados: Microsoft Windows 10 x32/x64, Microsoft Windows Server 2012, Microsoft Windows Server 2016, Microsoft Windows 8.1 x32/x64, Microsoft Windows Server 2012 R2, Microsoft Windows 7 x32/x64 Service Pack 1, Microsoft Windows Vista x32/x64 Service Pack 2, Microsoft Windows Server 2008 R2 x64 Service Pack 1, Microsoft Windows Server 2008 x32/x64 Service Pack 2
+
+### 4.3-  Métodos de Exploração
+A vulnerabilidade pode ser explorada remotamente, sem a necessidade de autenticação, enviando pacotes SMB maliciosos para o servidor Windows.
+
+
+![image](https://github.com/user-attachments/assets/73fafaf1-a24a-4173-ab38-473d006ebea3)
+
+<a href="https://www.exploit-db.com/exploits/41987">Clicando aqui você pode ver um exploit que se aproveita dessa vulnerabilidade</a>
+
+### 4.4- Mitigação
+Para corrigr essa vulnerabilidade é necessário aplicar o patch de segurança fornecido pela Microsoft identificado como MS17-010.
+
+Também é importante implementar regras de firewalll para restringir o acesso ao SMB, para evitar que máquinas não autorizadas tenham acesso a essa porta.
+
+![image](https://github.com/user-attachments/assets/3c33e45f-ef2b-44fd-b8a9-0ad8584bd840)
+
+
 ## Habilidades Desenvolvidas
 <!--
 - Análise de vulnerabilidades em redes locais.
