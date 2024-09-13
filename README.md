@@ -212,7 +212,7 @@ Também é importante implementar regras de firewalll para restringir o acesso a
 
 ![image](https://github.com/user-attachments/assets/3c33e45f-ef2b-44fd-b8a9-0ad8584bd840)
 
-## ** Conclusão **
+## **Conclusão**
 Este projeto permitiu uma visão prática sobre a identificação de vulnerabilidades em sistemas utilizando o OpenVAS. Ao longo das etapas, foi possível configurar um ambiente de teste, realizar a instalação e configuração do OpenVAS, e conduzir varreduras para detectar possíveis falhas de segurança em diferentes sistemas operacionais. Além disso, a análise aprofundada de uma vulnerabilidade específica demonstrou a importância de corrigir brechas de segurança para mitigar riscos.
 <!--
 ## 5- **Correção da Vulnerabilidade**
