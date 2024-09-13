@@ -5,12 +5,27 @@
 Este projeto tem como objetivo realizar uma auditoria de segurança em uma rede local utilizando o OpenVAS.A meta é identificar e mitigar vulnerabilidades, garantindo um ambiente seguro e confiável.
 
 ## Ferramentas e Tecnologias
-<!--
-- **OpenVAS:** Utilizado para análise de vulnerabilidades e geração de relatórios de segurança.
-- **Ubuntu Server:** Servidor configurado para hospedar o OpenVAS e realizar os scans.
-- **Apache2:** Servidor web utilizado como parte do ambiente de teste.
-- **VMware/VirtualBox:** Para simular a rede local e os diferentes ambientes de teste.
--->
+Durante o projeto, as seguintes ferramentas e tecnologias foram utilizadas:
+
+- VirtualBox: Software de virtualização utilizado para criar e gerenciar as máquinas virtuais que compõem o ambiente de teste.
+
+- Ubuntu Server: Sistema operacional utilizado para hospedar o servidor web e banco de dados no ambiente de teste, proporcionando um cenário realista para as varreduras de vulnerabilidades.
+
+- Windows 7: Sistema operacional alvo das varreduras, utilizado para analisar vulnerabilidades específicas de sistemas legados.
+
+- Lubuntu: Versão leve do Ubuntu, usada como uma máquina virtual adicional no ambiente de teste.
+
+- Kali Linux: Distribuição Linux focada em testes de segurança, utilizada para instalar e configurar o OpenVAS, além de executar varreduras de vulnerabilidades.
+
+- OpenVAS: Ferramenta principal de varredura de vulnerabilidades, utilizada para identificar falhas de segurança em diferentes sistemas e serviços.
+
+- Apache2: Servidor web configurado no Ubuntu Server, simulado como alvo de testes de segurança para detecção de vulnerabilidades.
+
+- Nmap: Ferramenta utilizada para escanear a rede e identificar os dispositivos ativos, criando uma lista de IPs para as varreduras do OpenVAS.
+
+- MySQL: Banco de dados configurado como parte do ambiente de teste, permitindo a prática de varredura de vulnerabilidades em um ambiente completo.
+
+  
 ## Descrição do Projeto
 Este projeto tem consiste em configurar e testar um ambiente de rede para auditoria de segurança utilizando a ferramenta OpenVAS. O ambiente foi criado com múltiplas máquinas virtuais para simular uma rede corporativa realista, onde foram implementados diversos serviços, como servidor web, banco de dados e sistemas operacionais diversos.
 
@@ -197,6 +212,8 @@ Também é importante implementar regras de firewalll para restringir o acesso a
 
 ![image](https://github.com/user-attachments/assets/3c33e45f-ef2b-44fd-b8a9-0ad8584bd840)
 
+## ** Conclusão **
+Este projeto permitiu uma visão prática sobre a identificação de vulnerabilidades em sistemas utilizando o OpenVAS. Ao longo das etapas, foi possível configurar um ambiente de teste, realizar a instalação e configuração do OpenVAS, e conduzir varreduras para detectar possíveis falhas de segurança em diferentes sistemas operacionais. Além disso, a análise aprofundada de uma vulnerabilidade específica demonstrou a importância de corrigir brechas de segurança para mitigar riscos.
 <!--
 ## 5- **Correção da Vulnerabilidade**
 Ness etapa, iremos descrever o processo de correção da vulnerabilidade "Microsoft Windows SMB Server Multiple Vulnerabilities-Remote (4013389)" e realizar uma nova varredura para confirmar que a vulnerabilidade foi corrigida.
@@ -206,22 +223,17 @@ Desativei a versão SMBv1 no Windows para mitigar a vulnerabilidade. Executei o 
 -->
 
 ## Habilidades Desenvolvidas
-<!--
-- Análise de vulnerabilidades em redes locais.
-- Configuração e operação de ferramentas de segurança como OpenVAS.
-- Interpretação de relatórios de segurança e proposta de soluções.
-- Configuração de servidores e ambientes de teste em VMs.
--->
-## Resultados
-<!--
-[Descreva os resultados alcançados com o projeto - Substitua esta linha]
+Durante o desenvolvimento deste projeto, foram aprimoradas e aplicadas as seguintes habilidades:
 
-A auditoria realizada permitiu a identificação de várias vulnerabilidades, das quais as mais críticas foram mitigadas com sucesso. O ambiente analisado passou a seguir as melhores práticas de segurança recomendadas.
--->
-## Referências
-<!--
-[Links e documentos relevantes utilizados no projeto - Substitua esta linha]
--->
----
+- Configuração de Ambientes de Teste: Configuração de VMs utilizando diferentes sistemas operacionais, como Ubuntu Server, Windows 7, e Lubuntu, além da implementação de uma rede NAT para simular um ambiente realista de análise de vulnerabilidades.
+
+- Instalação e Configuração do OpenVAS: Aprendizado prático na instalação e configuração do OpenVAS no Kali Linux, incluindo o uso de comandos do Linux e manipulação de pacotes.
+
+- Execução de Varreduras de Vulnerabilidades: Realização de varreduras detalhadas com o OpenVAS, identificando vulnerabilidades em diferentes sistemas e serviços, e exportando os resultados para análise.
+
+- Análise de Vulnerabilidades: Estudo detalhado de vulnerabilidades específicas (ex: Microsoft Windows SMB Server Multiple Vulnerabilities), com foco em suas causas, impacto e possíveis métodos de mitigação.
+
+- Utilização do Nmap: Aplicação do Nmap para identificar dispositivos ativos na rede e coletar dados que foram essenciais para a execução das varreduras de vulnerabilidades.
+
 
 
